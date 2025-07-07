@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2024 at 12:46 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jul 07, 2025 at 02:25 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,13 +41,13 @@ CREATE TABLE `albums` (
 --
 
 INSERT INTO `albums` (`album_id`, `title`, `release_year`, `genre`, `cover_image_url`, `description`) VALUES
-(1, 'Kiss Land', 2013, 'Alternative R&B', 'https://www.theweeknd.com/files/2016/08/artwork-440x440-2.jpg', 'Debut studio album featuring a dark, atmospheric sound.'),
-(2, 'Beauty Behind the Madness', 2015, 'Pop', 'https://www.theweeknd.com/files/2016/08/Beauty-Behind-The-Madness.jpg', 'Breakthrough album with hits like \"Can’t Feel My Face\" and \"The Hills\".'),
-(3, 'Starboy', 2016, 'R&B', 'https://www.theweeknd.com/files/2023/03/TW-STARBOY-DELUXE-COVER-EXPLICIT.jpg', 'Features collaborations with Daft Punk and a more upbeat tone.'),
-(4, 'After Hours', 2020, 'Synthwave', 'https://www.theweeknd.com/files/2020/02/release_202002_ab67616d0000b27380e1e80874a5b25317c380c5.jpg', 'Critically acclaimed album with the hit single \"Blinding Lights\".'),
-(5, 'Dawn FM', 2022, 'Synth-pop', 'https://www.theweeknd.com/files/2022/01/release_202201_DFM-COVER-EXPLICIT-768x768.jpg', 'Concept album with a radio station theme, featuring \"Take My Breath\".'),
-(6, 'Trilogy', 2012, 'Alternative R&B', 'https://www.theweeknd.com/files/2016/08/artwork-440x440-1.jpg', 'Compilation of The Weeknd\'s first three mixtapes: House of Balloons, Thursday, and Echoes of Silence.'),
-(7, 'My Dear Melancholy,', 2018, 'Alternative R&B', 'https://www.theweeknd.com/files/2018/03/release_201803_239a6b510014280a88f1ee8fcae44c6f7978bb39.jpg', 'An EP reflecting on heartbreak and emotional turmoil.');
+(1, 'Kiss Land', 2013, 'Alternative R&B', 'kiss-land.png', 'Debut studio album featuring a dark, atmospheric sound.'),
+(2, 'Beauty Behind the Madness', 2015, 'Pop', 'beauty-behind-the-madness.png', 'Breakthrough album with hits like \"Can’t Feel My Face\" and \"The Hills\".'),
+(3, 'Starboy', 2016, 'R&B', 'starboy.png', 'Features collaborations with Daft Punk and a more upbeat tone.'),
+(4, 'After Hours', 2020, 'Synthwave', 'after-hours.png', 'Critically acclaimed album with the hit single \"Blinding Lights\".'),
+(5, 'Dawn FM', 2022, 'Synth-pop', 'dawn-fm.png', 'Concept album with a radio station theme, featuring \"Take My Breath\".'),
+(6, 'Trilogy', 2012, 'Alternative R&B', 'trilogy.png', 'Compilation of The Weeknd\'s first three mixtapes: House of Balloons, Thursday, and Echoes of Silence.'),
+(7, 'My Dear Melancholy,', 2018, 'Alternative R&B', 'myDearMelancholy.jpg', 'An EP reflecting on heartbreak and emotional turmoil.');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,17 @@ CREATE TABLE `liked_songs` (
 INSERT INTO `liked_songs` (`id`, `user_id`, `song_id`) VALUES
 (5, 20, 28),
 (8, 20, 30),
-(7, 20, 41);
+(7, 20, 41),
+(16, 28, 25),
+(17, 28, 26),
+(18, 28, 27),
+(19, 29, 25),
+(20, 29, 26),
+(21, 29, 27),
+(22, 29, 28),
+(23, 29, 29),
+(24, 29, 30),
+(25, 29, 31);
 
 -- --------------------------------------------------------
 
@@ -113,20 +123,28 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`review_id`, `album_id`, `song_id`, `user_id`, `rating`, `review_text`, `review_date`) VALUES
-(1, NULL, 25, 20, 2, 'test1', '2024-12-01 09:44:27'),
-(2, NULL, 25, 20, 4, 'test2', '2024-12-01 09:45:05'),
-(6, NULL, 25, 20, 4, 'test4', '2024-12-01 09:56:47'),
-(7, NULL, 25, 20, 4, 'test5', '2024-12-01 00:51:22'),
-(8, NULL, 25, 20, 5, 'testing61', '2024-12-01 00:52:52'),
-(9, NULL, 25, 20, 4, 'testing its good', '2024-12-01 00:56:16'),
-(10, NULL, 25, 20, 3, 'test5555', '2024-12-01 01:23:08'),
-(11, NULL, 25, 20, 3, 'test666', '2024-12-01 01:23:22'),
-(12, NULL, 30, 20, 2, 'test 4', '2024-12-01 01:33:29'),
-(13, NULL, 30, 20, 3, 'test3', '2024-12-01 01:34:45'),
-(14, NULL, 30, 20, 2, '4test', '2024-12-01 01:36:38'),
-(15, NULL, 30, 20, 4, 'estreal4', '2024-12-01 01:37:31'),
-(16, NULL, 30, 20, 5, 'estreal5', '2024-12-01 01:37:39'),
-(17, NULL, 25, 21, 4, 'its for real good', '2024-12-01 01:39:03');
+(1, NULL, 25, 20, 2, 'Smooth and hypnotic. The perfect opening to Kiss Land. Sets the tone with dark elegance.', '2024-12-01 09:44:27'),
+(2, NULL, 25, 20, 4, 'The blend of R&B and electronic vibes is unreal. It’s haunting in the best way.', '2024-12-01 09:45:05'),
+(6, NULL, 25, 20, 4, 'a cold and calculated introduction to Kiss Land, where The Weeknd reflects on emotional numbness and the cost of fame. Built on a warped sample and minimalist production, the track creates a distant, almost sterile atmosphere. His lyrics explore the transformation of a woman—and himself—into something emotionally detached. It\'s hypnotic, slow-moving, and deeply introspective, showing The Weeknd at his most guarded and analytical.', '2024-12-01 09:56:47'),
+(7, NULL, 25, 20, 4, 'He really poured his soul into this. I felt every line.', '2024-12-01 00:51:22'),
+(8, NULL, 25, 20, 5, 'Underrated masterpiece. That beat switch halfway through? Goosebumps.', '2024-12-01 00:52:52'),
+(9, NULL, 25, 20, 4, 'It’s like floating in a dream... then falling into reality.', '2024-12-01 00:56:16'),
+(10, NULL, 25, 20, 3, 'A slow burn, but when it hits, it hits. Moody, cinematic, and addictive.', '2024-12-01 01:23:08'),
+(11, NULL, 25, 20, 3, 'The production is insane. So futuristic but deeply emotional.', '2024-12-01 01:23:22'),
+(12, NULL, 30, 20, 2, 'His vocals are so vulnerable here. You can feel the loneliness.', '2024-12-01 01:33:29'),
+(13, NULL, 30, 20, 3, 'This song is a whole vibe. Dark, seductive, and painfully honest.', '2024-12-01 01:34:45'),
+(14, NULL, 30, 20, 2, 'The kind of track you listen to at 2AM while thinking about your life.', '2024-12-01 01:36:38'),
+(15, NULL, 30, 20, 4, 'Absolutely addictive! The synths and beat never get old. Perfect for any mood.', '2024-12-01 01:37:31'),
+(16, NULL, 30, 20, 5, 'Smooth vocals with a nostalgic vibe — feels like a modern classic', '2024-12-01 01:37:39'),
+(17, NULL, 25, 21, 4, 'Catchy and fun, this song gets me dancing every time.', '2024-12-01 01:39:03'),
+(18, NULL, 34, 27, 4, 'great song', '2025-07-02 07:49:59'),
+(20, NULL, 25, 29, 4, 'love this song so much', '2025-07-07 02:54:30'),
+(21, NULL, 25, 28, 5, 'So classy and sultry — his voice melts through every note.', '2025-07-07 04:23:18'),
+(22, NULL, 26, 28, 5, 'Romantic, raw, and timeless. One of his most underrated gems.', '2025-07-07 04:23:41'),
+(23, NULL, 27, 28, 5, 'Dark and emotional — the vulnerability hits deep.', '2025-07-07 04:24:02'),
+(24, NULL, 28, 28, 5, 'Creepy and cool in the best way. Love the vocal effects', '2025-07-07 04:24:12'),
+(25, NULL, 29, 28, 5, 'Smooth and nostalgic — feels like a lost Michael Jackson track', '2025-07-07 04:24:28'),
+(26, NULL, 31, 28, 5, 'Whispers doubt and longing in such a hauntingly beautiful way.', '2025-07-07 04:24:37');
 
 -- --------------------------------------------------------
 
@@ -257,10 +275,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `username`, `email`, `password_hash`, `created_at`) VALUES
 (20, 'alvi123', 'alvi123@gmail.com', '$2y$10$tCWHTGzakAd.b3G547NdZeZWmb6ulQ7biIpStzu4YT4ibKD/tUgku', '2024-11-10 18:10:32'),
 (21, 'alvi456', 'alvi456@gmail.com', '$2y$10$VBAn5TqXOGM3W0SJ/5A1Oe0k7SSt/wPE5fSCyAfDYvu.dGUfPd7bq', '2024-11-12 06:52:15'),
-(22, 'alvitest', 'alvitest@gmail.com', '$2y$10$bonwICKAt9ZcrcU2o3Lh0OkRdEMCuyGLZVpZCSMRIgGDSzQ15elNO', '2024-11-13 08:57:50'),
-(23, 'alvitest', 'alvitest@gmail.com', '$2y$10$e5gJcrnc.M6w5.Ya7jiMo.gFrr83XmufM3.fbS0tVOTlLqWhLWgxa', '2024-11-13 08:59:01'),
-(24, 'alvi', 'alvi@gmail.com', '$2y$10$5EOgSqA26qXLkAIeJQi9wOnkS0RceuPF7.d8KS4C5Sn/qrgEhMpWy', '2024-11-13 09:01:48'),
-(25, 'alvi', 'alvi@gmail.com', '$2y$10$tWIybsFNB1ay68R8viqbtumvvaFsnbbgxB4z2Mprqo.ZuFQRlvIou', '2024-11-13 09:17:35');
+(27, 'name', 'name@gmail.com', '$2y$10$8xrEN/LO/p4C.ajDOecRV.VXqSQZ76SbW4tLpuODglTnzH/RBgYre', '2025-07-02 15:46:03'),
+(28, 'name1', 'name1@gmail.com', '$2y$10$wQS5MICQ89JNVLa4KlI08.UN96FJGA0e0RqUM/N9BTmtJZKqrwMe2', '2025-07-06 13:29:21'),
+(29, 'name3', 'name3@gmail.com', '$2y$10$BcLzamwOMS1TmuikOCrbhet5URSZKjbGy2iGoiyTEHMvt51CnJ5BO', '2025-07-07 07:53:29');
 
 --
 -- Indexes for dumped tables
@@ -335,13 +352,13 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `liked_songs`
 --
 ALTER TABLE `liked_songs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `songs`
@@ -353,7 +370,7 @@ ALTER TABLE `songs`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
