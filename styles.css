@@ -1,0 +1,606 @@
+/* ========== GLOBAL ========== */
+* {
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black; 
+    color: white;
+    padding-top: 60px;
+}
+
+a {
+    color: #f8f8f8;
+    text-decoration: underline;
+}
+
+button {
+    padding: 8px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    overflow: hidden;
+}
+
+/* ========== LOGIN ========== */
+.login-container {
+    background-color: #35124C;
+    border: solid white;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: auto;
+}
+
+.login-container h4 {
+    margin: 0;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #543864;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0;
+}
+
+button.signup-button {
+    width: 100%;
+    padding: 5px;
+    background-color: #35124C;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ========== GRID SYSTEM ========== */
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.col-1 { width: 8.33%; }
+.col-2 { width: 16.66%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.33%; }
+.col-5 { width: 41.66%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.33%; }
+.col-8 { width: 66.66%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.33%; }
+.col-11 { width: 91.66%; }
+.col-12 { width: 100%; }
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ========== NAVIGATION ========== */
+.topnav {
+    width: 100%;
+    font-family: 'Poppins';
+    background-color: black;
+    color: white;
+    border-bottom: 3px solid #B3B3B3;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    flex: 1;
+}
+
+.nav-center {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex: 2;
+}
+
+.nav-center a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.nav-center a:hover:not(.active) {
+    background-color: grey;
+}
+
+.nav-center a.active {
+    background-color: #1E1E1E;
+    font-weight: bold;
+}
+
+.nav-right {
+    display: flex;
+    gap: 10px;
+    justify-content: right;
+    align-items: center;
+    flex: 1;
+}
+
+.nav-button {
+    background-color: #35124C;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-icon {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ========== MEDIA QUERIES ========== */
+@media screen and (max-width: 768px) {
+    .image-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .left-column,
+    .right-column {
+        max-width: 100%;
+    }
+
+    .left-column .buttons {
+      justify-content: center;
+    }
+
+    .col-3, .col-4, .col-6, .col-7, .col-8 {
+        width: 100%;
+    }
+    
+    .col-6{
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+    
+    .container {
+      flex-direction: column !important;
+    }
+    .container > div {
+      flex: none !important;
+      width: 100% !important;
+    }
+
+    .topnav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        text-align: center;
+        width: 100%;
+        flex: none;
+    }
+
+    .nav-center,
+    .nav-right {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-center.show,
+    .nav-right.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        margin-left: auto;
+    }
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========== SEARCH BAR ========== */
+.search-container {
+    min-width: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: white;
+    border-radius: 20px;
+    width: 75%;
+    margin: 40px auto 0 auto;
+    gap: 10px;
+}
+
+.search-container .search-icon {
+    color: grey;
+    padding: 8px;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: black;
+}
+
+.search-button, .filter-button {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+}
+
+.search-button {
+    background-color: #543864;
+    color: white;
+}
+
+.search-button:hover {
+    background-color: #412C4E;
+}
+
+.filter-button {
+    background-color: #FFBD69;
+    color: black;
+}
+
+.filter-button:hover {
+    background-color: #FFAF47;
+}
+
+/* ========== HOME COVER IMAGE ========== */
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  flex: 1;
+  max-width: 650px;
+  color: white;
+}
+
+.left-column .cover {
+  font-size: 3.5em;
+  margin-bottom: 10px;
+    font-family: fantasy;
+    color: #FFBD69;
+}
+
+.left-column .description {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.left-column .buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.left-column .btn {
+  padding: 10px 20px;
+  background-color: #FF6363;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.left-column .btn:hover {
+  background-color: darkred;
+}
+
+.right-column {
+  flex: 1;
+  max-width: 500px;
+}
+
+.right-column img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* ========== POPUP MODAL ========== */
+.modal {
+    color: black;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 250px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    color: gray;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2,
+.modal-content h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-content button {
+    background: #FFBD69;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.modal-content button:hover {
+    background: #FFAF47;
+}
+
+/* ========== ALBUM / GRID VIEW ========== */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    max-width: calc(200px * 6 + 60px);
+    gap: 15px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    background-color: #1E1E1E;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.album-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.grid-item h3.title {
+    font-size: 1em;
+    color: #FFBD69;
+    margin: 5px 0;
+}
+
+.grid-item h3.year {
+    font-size: 1em;
+    color: #FFBD69;
+    margin: 0;
+}
+
+.grid-item p {
+    color: #f0f0f0;
+    margin: 3px 0;
+}
+
+.grid-item a {
+    color: #FFBD69;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.grid-item a:hover {
+    text-decoration: underline;
+}
+
+/* ========== SONG TABLE ========== */
+.songs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.songs-table th,
+.songs-table td {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+}
+
+.songs-table th {
+    font-weight: bold;
+    color: #aaa;
+}
+
+.songs-table td {
+    color: #eee;
+    font-size: 16px;
+}
+
+.song-title {
+    display: flex;
+    align-items: center;
+}
+
+.song-title a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.cover-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.love-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: red;
+}
+
+.love-button:hover {
+    color: darkred;
+}
+
+/* ========== ALERT ========== */
+.alert {
+    background-color: #444444;
+    color: #FFBD69;
+    border: 1px solid #FFBD69;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.alert .close {
+    color: #aaa;
+    font-size: 20px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    text-decoration: none;
+}
+
+/* ========== SEARCH SUGGESTIONS ========== */
+#results {
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    background-color: #35124C;
+    position: absolute;
+    z-index: 1000;
+    width: calc(100% - 20px);
+    margin-top: 50px;
+    margin-left: 10px;
+    left: 0;
+}
+
+#results div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#results div:hover {
+    background-color: #1E1E1E;
+}
+
+/* ========== UNDERSCORE ========== */
+p.underscore {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+p.underscore:hover {
+    color: white;
+}
+
+/* ========== BUTTON STYLES ========== */
+button.b1 {
+    background: #FFBD69;
+    width: 15%;
+}
+button.b1:hover {
+    background: #FFAF47;
+}
+button.b2 {
+    background: #543864;
+    color: white;
+    width: 25%;
+}
+button.b2:hover {
+    background: #412C4E;
+    color: white;
+}
